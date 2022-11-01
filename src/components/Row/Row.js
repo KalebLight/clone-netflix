@@ -27,7 +27,9 @@ function Row({ title, path, isLarge }) {
             return (
               <img
                 className={`movie-card ${isLarge && 'movie-card-large'}`}
-                src={`${imageHost}${movie.poster_path}`}
+                src={`${imageHost}${
+                  isLarge ? movie.backdrop_path : movie.poster_path
+                }`}
                 key={movie.id}
               />
             );
