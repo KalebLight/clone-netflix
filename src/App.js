@@ -10,6 +10,7 @@ function App() {
             key={category.name}
             title={category.title}
             path={category.path}
+            isLarge={category.isLarge}
           />
         );
       })}
