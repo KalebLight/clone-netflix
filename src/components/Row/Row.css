@@ -31,3 +31,7 @@
 .movie-card:hover {
   transform: scale(1.1);
 }
+
+.trailer-error-msg {
+  margin-bottom: 5px;
+}

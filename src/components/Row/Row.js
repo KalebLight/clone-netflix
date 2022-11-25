@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import ReactPlayer from 'react-player';
 import { getMovies } from '../../api';
 import './Row.css';
+
 const imageHost = 'https://image.tmdb.org/t/p/original/';
 
 function Row({ title, path, isLarge }) {
@@ -17,7 +18,7 @@ function Row({ title, path, isLarge }) {
   };
 
   const handleOnClick = (movie) => {
-    if (trailerUrl) {
+    if (trailerUrl || trailerUrl == null) {
       setTrailerUrl('');
     } else {
       movieTrailer(movie.name || movie.title || movie.original_name || '')
@@ -54,6 +55,9 @@ function Row({ title, path, isLarge }) {
         </div>
         {trailerUrl && (
           <ReactPlayer url={trailerUrl} playing={true} volume={null} />
+        )}
+        {trailerUrl == null && (
+          <h3 className="trailer-error-msg">O trailer não foi encontrado!</h3>
         )}
       </div>
     </>
